@@ -104,8 +104,9 @@ gulp.task('serve', ['html','sass','images','babel'], () => {
 gulp.task('default', ['html','sass','images','babel','serve','browserify','watch']);
 
 gulp.task('watch', () => {
-  gulp.watch('src/css/app.scss',['sass']);
-  gulp.watch('src/images/*.{jpg,png,gif}',['images']);
-  gulp.watch('src/app.js', ['babel']);
-  gulp.watch('src/js/*.js', ['browserify']);
+    gulp.watch("src/html/*.html",['html']); 
+    gulp.watch('src/css/app.scss',['sass']);
+    gulp.watch('src/images/*.{jpg,png,gif}',['images']);
+    gulp.watch('src/app.js', ['babel']);
+    gulp.watch('src/js/*.js', ['browserify']);
 })

@@ -10,4 +10,3 @@ console.log('我的名字是：'+p1.getName()+',我的年纪是:'+p1.getAge());
 
 
 //import aAs from './assignmentAndresolution';
-
