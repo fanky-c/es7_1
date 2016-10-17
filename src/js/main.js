@@ -1,4 +1,13 @@
-import p from './foo';
+import Person from './class';
+let p1 = new Person();
+console.log('我的名字是：'+p1.getName()+',我的年纪是:'+p1.getAge());
 
-let p1 = new p();
-alert('my name is: '+p1.getName())
+
+//import letAndConst from './letAndConst';
+
+
+//import string from './string';
+
+
+//import aAs from './assignmentAndresolution';
+
