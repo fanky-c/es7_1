@@ -11,6 +11,10 @@
 // }
 // alert(a) //a is not defined
 
+
+
+
+
 // function f1() {
 //   let n = 5;
 //   if (true) {
@@ -18,10 +22,9 @@
 //   }
 //   console.log(n); // 5
 // }
+// f1();
 
-
-
-//let不允许在相同作用域内，重复声明同一个变量。
+//let不允许在相同作用域内，重复声明同一个变量(编译不过去)。
 // {
 //     let a = 10;
 //     var a = 1;
@@ -55,11 +58,20 @@
 
 
 //const的作用域与let命令相同：只在声明所在的块级作用域内有效。
-// if (condition) {
+// if (true) {
 //     const MAX = 5;
 // }
-// 常量MAX在此处不可得
+
+// console.log(MAX) //常量MAX在此处不可得 MAX is not defined
 
 //const声明的常量，也与let一样不可重复声明。
 // const age = "Goodbye!";
 // let age = 30;
+
+//var命令和function命令声明的全局变量，依旧是顶层对象的属性；
+//另一方面规定，let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性。
+//也就是说，从ES6开始，全局变量将逐步与顶层对象的属性脱钩。
+// var a = 1;
+// console.log(window.a);  //undefined 因为是在严格模式下  use strict
+// let b = 2;
+// console.log(window.b);  //undefined  

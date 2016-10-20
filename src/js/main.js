@@ -1,12 +1,28 @@
-import Person from './class';
-let p1 = new Person();
-console.log('我的名字是：'+p1.getName()+',我的年纪是:'+p1.getAge());
+//let和const的命令
+import letAndConst from './letAndConst';
 
 
-//import letAndConst from './letAndConst';
+//变量的解析和赋值
+import aAs from './assignmentAndresolution';
+
+//字符串扩展
+import string from './string';
+
+//Number扩展
+import Num from './Number';
 
 
-//import string from './string';
+//Array扩展
+import Arr from './Array';
 
 
-//import aAs from './assignmentAndresolution';
+//函数扩展
+import fun from './function'
+
+
+
+
+//Class类
+// import Person from './class';
+// let p1 = new Person();
+// console.log('我的名字是：'+p1.getName()+',我的年纪是:'+p1.getAge());

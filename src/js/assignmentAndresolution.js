@@ -1,11 +1,11 @@
 //变量的解构赋值
 
 //A:数组的解构赋值
-//let [a,b,c] = [1,2,'y'];
-//alert(c)
+// let [a,b,c] = [1,2,'y'];
+// alert(c)
 
-//let [foo, [[bar], baz]] = [1, [[2], 3]];
-//alert(baz)
+// let [foo, [[bar], baz]] = [1, [[2], 3]];
+// alert(baz)
 
 //let [,,third] = ["foo", "bar", "baz"];
 //console.log(third)
@@ -18,7 +18,9 @@
 
 
 
-//B:对象的解构赋值(数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值)
+//B:对象的解构赋值(数组的元素是按次序排列的，变量的取值由它的位置决定；
+//而对象的属性没有次序，变量必须与属性同名，才能取到正确的值)
+
 //let { bar, foo } = { foo: "aaa", bar: "bbb" };
 //console.log(bar)
 
@@ -30,7 +32,7 @@
 //   ]
 // };
 
-// console.log(p)
+// console.log(y)  //注意，这时p是模式，不是变量，因此不会被赋值。
 
 
 //用途 
@@ -40,18 +42,21 @@
 //（2）从函数返回多个值
 // 返回一个数组
 // function example() {
-//     return [1, 2, 3];
+//     return [1, 2, 3,4];
 // }
 // var [a, b, c] = example();
+// alert(c)
 
 // 返回一个对象
 // function example() {
 //   return {
-//     foo: 1,
-//     bar: 2
+//     foo: 'foo',
+//     bar: 'bar'
 //   };
 // }
-// var { foo, bar } = example();
+// var { bar, foo } = example();
+// alert(foo)
+// alert(foo1) //foo1 is not defined
 
 //（3）函数参数的定义
 

@@ -59,6 +59,10 @@ gulp.task('images', () => {
 gulp.task('babel',() => {
   gulp.src('src/js/*.js')
     .pipe(babel())
+    .on('error', function(err){
+        console.log(err.stack);
+        this.emit('end');
+    })    
     .pipe(gulp.dest('dist/js'))
     .pipe(notify({ message: 'babel task complete' }));
 })
@@ -81,7 +85,10 @@ gulp.task('browserify',()=> {
         .pipe(source('bundle.js'))   //生成入口文件
         .pipe(buffer())
         .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(sourcemaps.write('.'))      
+        .pipe(sourcemaps.write({
+            includeContent: false,
+            sourceRoot: 'src'
+        }))      
         .pipe(gulp.dest('dist/js'))
         .pipe(notify({ message: 'browserify task complete' }));
 })
