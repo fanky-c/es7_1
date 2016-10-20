@@ -17,7 +17,10 @@ import Arr from './Array';
 
 
 //函数扩展
-import fun from './function'
+import fun from './function';
+
+//对象扩展
+import obj from './obj';
 
 
 
