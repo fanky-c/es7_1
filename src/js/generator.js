@@ -29,22 +29,122 @@ console.log(generator.next());  //{value: undefined, done: true}
 
 
 //取出嵌套数组的所有成员
-function* iterTree(tree) {
-  if (Array.isArray(tree)) {
-    for(let i=0; i < tree.length; i++) {
-      yield* iterTree(tree[i]);
-    }
-  } else {
-    yield tree;
+
+// function* iterTree(tree) {
+//   if (Array.isArray(tree)) {
+//     for(let i=0; i < tree.length; i++) {
+//       yield* iterTree(tree[i]);
+//     }
+//   } else {
+//     yield tree;
+//   }
+// }
+
+// let tree = [ 'a', ['b', 'c'], ['d', 'e'] ];
+
+// for(let val of iterTree(tree)){
+//       console.log(val)
+// }
+
+
+
+// 下面是二叉树的构造函数，
+// 三个参数分别是左树、当前节点和右树
+function Tree(left, label, right) {
+  this.left = left;
+  this.label = label;
+  this.right = right;
+}
+
+// 下面是中序（inorder）遍历函数。
+// 由于返回的是一个遍历器，所以要用generator函数。
+// 函数体内采用递归算法，所以左树和右树要用yield*遍历
+
+function* inorder(t) {
+  if (t) {
+    yield* inorder(t.left);
+    yield t.label;
+    yield* inorder(t.right);
   }
 }
 
-let tree = [ 'a', ['b', 'c'], ['d', 'e'] ];
+// 下面生成二叉树
+function make(array) {
+  // 判断是否为叶节点
+  if (array.length == 1) return new Tree(null, array[0], null);
+  return new Tree(make(array[0]), array[1], make(array[2]));
+}
+let tree = make([[['a'], 'b', ['c']], 'd', [['e'], 'f', ['g']]]);
 
-for(let val of iterTree(tree)){
-      console.log(val)
+// 遍历二叉树
+var result = [];
+for (let node of inorder(tree)) {
+  result.push(node);
 }
 
+console.log(result)
+
+
+//Generator与状态机 
+
+
+//es5
+let ticking = true;
+let clock = function() {
+  if (ticking)
+    console.log('Tick!');
+  else
+    console.log('Tock!');
+    ticking = !ticking;
+}
+clock()
+clock()
+clock()
+clock()
+
+//es6
+function*clockes6() {
+  while (true) {
+    console.log('---Tick!');
+    yield; 
+    console.log('---Tock!');
+    yield; 
+  }
+};
+
+clockes6().next();
+clockes6().next();
+clockes6().next();
+clockes6().next();
+
+
+
+//异步操作的同步化表达 
+
+function* loadUI() {
+  showLoadingScreen();
+  yield loadUIDataAsynchronously();
+  hideLoadingScreen();
+}
+
+function showLoadingScreen(){
+	  console.log('showLoadingScreen');
+}
+function loadUIDataAsynchronously(){
+	  setTimeout(function(){
+	    console.log('loadUIDataAsynchronously');
+	  },3000)
+}
+function hideLoadingScreen(){
+	  console.log('hideLoadingScreen');
+}
+var loader = loadUI();
+
+// 加载UI
+loader.next()
+
+// 卸载UI
+loader.next()
 
 
 
