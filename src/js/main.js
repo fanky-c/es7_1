@@ -29,10 +29,16 @@ import letAndConst from './letAndConst';
    1,将Object对象的一些明显属于语言内部的方法（比如Object.defineProperty），放到Reflect对象上
    2,修改某些Object方法的返回结果，让其变得更合理
 **/
-import proxy from './reflect';
+// import proxy from './reflect';
+
+/**
+   map 和 set数据格式
+**/
+// import mapSet from './mapAndSet'
 
 
-import mapSet from './mapAndSet'
+import iterator from './iterator'
+
 
 
 //Class类
