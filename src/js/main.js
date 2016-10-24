@@ -1,5 +1,5 @@
 //let和const的命令
-import letAndConst from './letAndConst';
+//import letAndConst from './letAndConst';
 
 
 //变量的解析和赋值
@@ -37,8 +37,13 @@ import letAndConst from './letAndConst';
 // import mapSet from './mapAndSet'
 
 
-import iterator from './iterator'
+/**
+   遍历器（Iterator）就是这样一种机制。它是一种接口，为各种不同的数据结构提供统一的访问机制。
+   任何数据结构只要部署Iterator接口，就可以完成遍历操作（即依次处理该数据结构的所有成员）
+**/
+//import iterator from './iterator';
 
+import generator from './generator';
 
 
 //Class类
