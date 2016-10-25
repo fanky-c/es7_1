@@ -55,7 +55,13 @@ Generator函数是一个普通函数，但是有两个特征。
 /**
    Promise是异步编程的一种解决方案，比传统的解决方案——回调函数和事件
 **/
-import promise from './promise';
+//import promise from './promise';
+
+
+/**
+   异步操作
+**/
+import async from './async';
 
 //Class类
 // import Person from './class';

@@ -41,7 +41,7 @@
 
 
 //异步加载图片(如果加载成功，就调用resolve方法，否则就调用reject方法。)
- let loadImageAsync = (src) => {
+ let loadImageAsync = (src = 'http://act.m.yystatic.com/act/images/ceremony2016_1/mobile/default.png') => {
 	  return new Promise((resolve,reject) => {
 	  	  let image = new Image();
 
@@ -91,7 +91,43 @@ let getJSON = (url) => {
 
 
 getJSON().then((json)=>{
-    console.log('加载成功：'+json)
+    console.log('加载成功：'+json);
 },(error)=>{
     console.log('error');
 })
+
+
+//Generator函数与Promise的结合 
+// let getFoo = () =>{
+// 	   return new Promise((resolve,reject) => {
+//            resolve('foo');     
+// 	   })
+// }
+
+// let g = function*(){
+// 	 try{
+// 	 	let foo = yield getFoo();
+// 	 	console.log(foo);
+// 	 } catch (e){
+// 	 	console.log(e);
+// 	 }
+// }
+
+// let run = (generator) =>{
+//     let it = generator();
+//     let go = (result) => {
+//         if(result.done){
+//              return result.value;
+//         }
+
+//         return result.value.then((value) =>{
+//         	return go(it.next(value))
+//         },(error)=>{
+//         	return go(it.throw('error')); 
+//         })
+//     }
+
+//     go(it.next());
+// }
+
+//  run(g)
