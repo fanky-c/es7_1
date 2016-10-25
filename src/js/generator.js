@@ -125,18 +125,17 @@ function* loadUI() {
   showLoadingScreen();
   yield loadUIDataAsynchronously();
   hideLoadingScreen();
+ 
 }
 
 function showLoadingScreen(){
-	  console.log('showLoadingScreen');
+	  console.log('显示登录页ui');
 }
 function loadUIDataAsynchronously(){
-	  setTimeout(function(){
-	    console.log('loadUIDataAsynchronously');
-	  },3000)
+	    console.log('加载数据');
 }
 function hideLoadingScreen(){
-	  console.log('hideLoadingScreen');
+	  console.log('隐藏登录页ui');
 }
 var loader = loadUI();
 

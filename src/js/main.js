@@ -43,8 +43,19 @@
 **/
 //import iterator from './iterator';
 
-import generator from './generator';
 
+/**
+Generator函数是一个普通函数，但是有两个特征。
+一是，function关键字与函数名之间有一个星号；
+二是，函数体内部使用yield语句，定义不同的内部状态（yield语句在英语里的意思就是“产出”）。
+***/
+//import generator from './generator';
+
+
+/**
+   Promise是异步编程的一种解决方案，比传统的解决方案——回调函数和事件
+**/
+import promise from './promise';
 
 //Class类
 // import Person from './class';
