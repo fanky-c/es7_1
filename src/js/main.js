@@ -64,10 +64,13 @@ Generator函数是一个普通函数，但是有两个特征。
 //import async from './async';
 
 //Class类
- import {Person,Person1} from './class';
+ import {Person,Person1,ColorPoint,DistributedEdit} from './class';
  let p = new Person();
  console.log('我的名字是：'+p.getName()+',我的年纪是:'+p.getAge());
 
- 
- let p1 = new Person1('赵超',12);
+
+ let p1 = new Person1('赵',12);
  console.log('我的名字是：'+p1.getName()+',我的年纪是:'+p1.getAge());
+
+ let p2 = new ColorPoint('超',22,'red');
+ console.log('我的名字是：'+p2.getName()+',我的年纪是:'+p2.getAge()+',颜色是:'+p2.getColor())
