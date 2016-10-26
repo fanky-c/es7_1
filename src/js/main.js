@@ -61,9 +61,13 @@ Generator函数是一个普通函数，但是有两个特征。
 /**
    异步操作
 **/
-import async from './async';
+//import async from './async';
 
 //Class类
-// import Person from './class';
-// let p1 = new Person();
-// console.log('我的名字是：'+p1.getName()+',我的年纪是:'+p1.getAge());
+ import {Person,Person1} from './class';
+ let p = new Person();
+ console.log('我的名字是：'+p.getName()+',我的年纪是:'+p.getAge());
+
+ 
+ let p1 = new Person1('赵超',12);
+ console.log('我的名字是：'+p1.getName()+',我的年纪是:'+p1.getAge());
