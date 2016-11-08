@@ -1,5 +1,9 @@
 //ES6允许在对象之中，只写属性名，不写属性值。这时，属性值等于属性名所代表的变量
 
+/**
+   Object.prototype.toString.call()  检测数据类型
+**/
+
 function testObj(x='x',y='y'){
 	 return {x,y};
 }
