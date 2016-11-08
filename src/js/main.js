@@ -95,3 +95,8 @@ Generator函数是一个普通函数，但是有两个特征。
 
  let p2 = new ColorPoint('超',22,'red');
  console.log('我的名字是：'+p2.getName()+',我的年纪是:'+p2.getAge()+',颜色是:'+p2.getColor())
+
+
+ //arrayBuffer(二进制数组)
+ import AB from './arrayBuffer';
+
