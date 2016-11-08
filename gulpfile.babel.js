@@ -9,6 +9,8 @@ import browserSync from 'browser-sync';
 import imagemin from 'gulp-imagemin';
 import pngquant from 'imagemin-pngquant';
 import clean from 'gulp-clean';
+import plumber from 'gulp-plumber';
+
 
 // browserify
 import browserify from 'browserify';
@@ -30,6 +32,7 @@ gulp.task('clean', () => {
 //css
 gulp.task('sass', () => {
   gulp.src('src/css/*.scss')
+    .pipe(plumber())
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(gulp.dest('dist/css'))
@@ -40,6 +43,7 @@ gulp.task('sass', () => {
 //html
 gulp.task('html',() => {
    gulp.src('src/html/*.html')
+   .pipe(plumber())
    .pipe(gulp.dest('dist/html'))
    .pipe(notify({ message: 'html task complete' }));
 });
@@ -47,6 +51,7 @@ gulp.task('html',() => {
 //images
 gulp.task('images', () => {
     gulp.src(['src/images/*','src/images/**/*'])
+    .pipe(plumber())
     .pipe(imagemin({
        progressive: true,
        use: [pngquant()] //使用pngquant来压缩png图片
@@ -58,11 +63,8 @@ gulp.task('images', () => {
 //js
 gulp.task('babel',() => {
   gulp.src('src/js/*.js')
-    .pipe(babel())
-    .on('error', function(err){
-        console.log(err.stack);
-        this.emit('end');
-    })    
+    .pipe(plumber())
+    .pipe(babel())       
     .pipe(gulp.dest('dist/js'))
     .pipe(notify({ message: 'babel task complete' }));
 })
@@ -71,7 +73,7 @@ gulp.task('js-watch', ['babel'], browserSync.reload);
 
 // set browserify task
 gulp.task('browserify',()=> {
-        browserify({
+        return browserify({
             entries: ['src/js/main.js'],          
             // entries: ['src/js/main.js'
             //            ,'src/js/foo.js'
@@ -79,12 +81,16 @@ gulp.task('browserify',()=> {
             //            ,'src/js/string.js'
             //            ,'src/js/assignmentAndresolution.js'],
             debug: true
-        })
-        .transform("babelify", {presets: ["es2015"]})
+        })       
+        .transform("babelify", {presets: ["es2015"]})        
         .bundle()
+        .on('error', function(err){
+          console.log(err.message);
+          this.emit('end');
+        })        
         .pipe(source('bundle.js'))   //生成入口文件
         .pipe(buffer())
-        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(sourcemaps.init({loadMaps: true}))        
         .pipe(sourcemaps.write({
             includeContent: false,
             sourceRoot: 'src'
