@@ -1,3 +1,46 @@
+/**
+ *  不适合使用箭头函数：this值达不到预期
+ * 
+ */
+// 1:在对象上定义函数
+// var obj = {  
+//     array: [1, 2, 3],
+//     sum: () => {
+//         console.log(this === window); // => true
+//         return this.array.reduce((result, item) => result + item);
+//     }
+// };
+// 
+//  ===> 
+//  var obj = {  
+//     array: [1, 2, 3],
+//     sum() {
+//         console.log(this === obj); // => true
+//         return this.array.reduce((result, item) => result + item);
+//     }
+// };
+
+
+// 2.在原型上定义函数
+// function Person (pName) {
+//     this.pName = pName;
+// }
+
+// Person.prototype.sayName = () => {
+//     console.log(this === window); // => true
+//     return this.pName;
+// }
+
+// var person = new Person('wdg');
+
+
+// 3.动态上下文中的回调函数
+// var button = document.getElementById('myButton');  
+// button.addEventListener('click', () => {  
+//     console.log(this === window); // => true
+//     this.innerHTML = 'Clicked button';
+// })
+
 //默认值箭头函数
 let test = (x = 5) =>{
 	   console.log(x);
