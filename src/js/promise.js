@@ -41,7 +41,7 @@
 
 
 //异步加载图片(如果加载成功，就调用resolve方法，否则就调用reject方法。)
- let loadImageAsync = (src = 'http://act.m.yystatic.com/act/images/ceremony2016_1/mobile/default.png') => {
+let loadImageAsync = (src = 'http://act.m.yystatic.com/act/images/ceremony2016_1/mobile/default.png') => {
 	  return new Promise((resolve,reject) => {
 	  	  let image = new Image();
 
@@ -61,7 +61,12 @@ let src = 'http://img1.gtimg.com/sports/pics/hv1/75/40/2145/139488900.jpg';
 loadImageAsync(src).then((value) => {
     console.log('加载成功:'+value.src); 	 
 },(error) =>{
-	console.log('error');  
+	console.log(error);  
+}).
+then((vaule) => {
+     console.log('promise的回调')
+},(error) => {
+     console.log('回调错误');
 });
 
 
