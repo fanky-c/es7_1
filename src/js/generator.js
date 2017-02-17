@@ -103,7 +103,7 @@ clock()
 clock()
 
 //es6
-function*clockes6() {
+function* clockes6() {
   while (true) {
     console.log('---Tick!');
     yield; 
