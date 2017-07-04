@@ -1,0 +1,11 @@
+.idea
+./.settings
+./.classpath
+./.project
+.DS_Store
+.idea
+dist
+npm-debug.log
+node_modules
+node_modules.zip
+build

@@ -100,3 +100,7 @@ import promise from './promise';
  //arrayBuffer(二进制数组)
  import AB from './arrayBuffer';
 
+
+ //数据双向绑定（es5）
+ import './defineProperty';
+
